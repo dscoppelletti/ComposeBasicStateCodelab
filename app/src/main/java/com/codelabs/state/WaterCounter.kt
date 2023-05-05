@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -22,7 +23,16 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun WaterCounter(modifier: Modifier = Modifier) {
     Column(modifier = modifier.padding(16.dp)) {
-        var count by remember { mutableStateOf(0) }
+        /* BEGIN-8 - Restore state in Compose */
+        // While remember helps you retain state across recompositions, it's not
+        // retained across configuration changes. For this, you must use
+        // rememberSaveable instead of remember.
+        // rememberSaveable automatically saves any value that can be saved in a
+        // Bundle.
+//        var count by remember { mutableStateOf(0) }
+        var count by rememberSaveable { mutableStateOf(0) }
+        /* END- 8 */
+
         if (count > 0) {
             Text("You've had $count glasses.")
         }
