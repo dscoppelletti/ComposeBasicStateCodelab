@@ -9,6 +9,10 @@ about state and events in Compose, the mechanism Compose uses to track state
 changes and update the UI accordingly with APIs such as mutableStateOf and how
 you can use your ViewModels in a Compose app.
 
+## References
+
+* [Compose and other libraries](http://developer.android.com/jetpack/compose/libraries#streams)
+
 ## License
 
 ```
