@@ -10,6 +10,9 @@ import androidx.compose.ui.Modifier
  */
 @Composable
 fun WellnessScreen(modifier: Modifier = Modifier) {
-    WaterCounter(modifier)
+    /* BEGIN-9 - State hoisting */
+//    WaterCounter(modifier)
+    StatefulCounter(modifier)
+    /* END-9 */
 }
 
