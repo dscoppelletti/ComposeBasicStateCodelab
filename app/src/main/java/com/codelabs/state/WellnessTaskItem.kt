@@ -69,24 +69,41 @@ fun WellnessTaskItem(
     }
 }
 
+/* BEGIN-11 - Observable MutableList */
+//@Composable
+//fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier) {
+//    /* BEGIN-10.2 - Restore item state in LazyList */
+//    // When an item leaves the Composition, state that was remembered is
+//    // forgotten. For items on a LazyColumn, items leave the Composition
+//    // entirely when you scroll past them and they're no longer visible.
+////    var checkedState by remember { mutableStateOf(false) }
+//    // Thanks to how rememberSaveable works together with the LazyList, your
+//    // items are able to also survive leaving the Composition.
+//    var checkedState by rememberSaveable { mutableStateOf(false) }
+//    /* END-10.2 */
+//
+//    WellnessTaskItem(
+//        taskName = taskName,
+//        checked = checkedState,
+//        onCheckedChange = { newValue -> checkedState = newValue },
+//        onClose = {}, // we will implement this later!
+//        modifier = modifier
+//    )
+//}
+/* END-10.1 */
+
 @Composable
-fun WellnessTaskItem(taskName: String, modifier: Modifier = Modifier) {
-    /* BEGIN-10.2 - Restore item state in LazyList */
-    // When an item leaves the Composition, state that was remembered is
-    // forgotten. For items on a LazyColumn, items leave the Composition
-    // entirely when you scroll past them and they're no longer visible.
-//    var checkedState by remember { mutableStateOf(false) }
-    // Thanks to how rememberSaveable works together with the LazyList, your
-    // items are able to also survive leaving the Composition.
+fun WellnessTaskItem(
+    taskName: String, onClose: () -> Unit, modifier: Modifier = Modifier
+) {
     var checkedState by rememberSaveable { mutableStateOf(false) }
-    /* END-10.2 */
 
     WellnessTaskItem(
         taskName = taskName,
         checked = checkedState,
         onCheckedChange = { newValue -> checkedState = newValue },
-        onClose = {}, // we will implement this later!
-        modifier = modifier
+        onClose = onClose,
+        modifier = modifier,
     )
 }
-/* END-10.1 */
+/* END-11 */
