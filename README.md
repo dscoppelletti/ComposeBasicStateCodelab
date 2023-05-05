@@ -12,6 +12,7 @@ you can use your ViewModels in a Compose app.
 ## References
 
 * [Compose and other libraries](http://developer.android.com/jetpack/compose/libraries#streams)
+* [Lifecycle of composables](http://developer.android.com/jetpack/compose/lifecycle#lifecycle-overview)
 
 ## License
 

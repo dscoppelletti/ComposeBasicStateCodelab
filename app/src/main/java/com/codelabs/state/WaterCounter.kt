@@ -72,11 +72,23 @@ fun WaterCounter(modifier: Modifier = Modifier) {
         // property every time.
         var count by remember { mutableStateOf(0) }
 
-        Text("You've had $count glasses.")
-        Button(onClick = { count++ }, Modifier.padding(top = 8.dp)) {
+        /* BEGIN-6 - State driven UI */
+//        Text("You've had $count glasses.")
+//        Button(onClick = { count++ }, Modifier.padding(top = 8.dp)) {
+//            Text("Add one")
+//        }
+//        /* END-5.3 */
+        if (count > 0) {
+            // This text is present if the button has been clicked
+            // at least once; absent otherwise
+            Text("You've had $count glasses.")
+        }
+
+        Button(onClick = { count++ }, Modifier.padding(top = 8.dp),
+            enabled = count < 10) {
             Text("Add one")
         }
-        /* END-5.3 */
+        /* END-6 */
     }
     /* END-4 */
 }
