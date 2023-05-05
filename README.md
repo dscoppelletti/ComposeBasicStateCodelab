@@ -16,6 +16,8 @@ you can use your ViewModels in a Compose app.
 * [Restoring state in Compose](http://developer.android.com/jetpack/compose/state#restore-ui-state)
 * [Compose Architecture documentation](http://developer.android.com/jetpack/compose/architecture#udf-compose)
 * [Compose State documentation](http://developer.android.com/jetpack/compose/state#state-hoisting)
+* [Lists documentation](http://developer.android.com/jetpack/compose/lists)
+* [Documentation for state in lists](http://developer.android.com/jetpack/compose/lists#react-to-scroll-position)
 
 ## License
 
