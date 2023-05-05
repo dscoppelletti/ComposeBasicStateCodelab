@@ -14,10 +14,6 @@ import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 
 /* BEGIN-10.1 - Setup */
 ///**
@@ -92,18 +88,22 @@ fun WellnessTaskItem(
 //}
 /* END-10.1 */
 
-@Composable
-fun WellnessTaskItem(
-    taskName: String, onClose: () -> Unit, modifier: Modifier = Modifier
-) {
-    var checkedState by rememberSaveable { mutableStateOf(false) }
-
-    WellnessTaskItem(
-        taskName = taskName,
-        checked = checkedState,
-        onCheckedChange = { newValue -> checkedState = newValue },
-        onClose = onClose,
-        modifier = modifier,
-    )
-}
-/* END-11 */
+/* BEGIN-12.2 - Migrate the checked state */
+// We no longer need a stateful method, as the CheckBox state will be hoisted to
+// the List level.
+//@Composable
+//fun WellnessTaskItem(
+//    taskName: String, onClose: () -> Unit, modifier: Modifier = Modifier
+//) {
+//    var checkedState by rememberSaveable { mutableStateOf(false) }
+//
+//    WellnessTaskItem(
+//        taskName = taskName,
+//        checked = checkedState,
+//        onCheckedChange = { newValue -> checkedState = newValue },
+//        onClose = onClose,
+//        modifier = modifier,
+//    )
+//}
+///* END-11 */
+/* END-12.2 */
